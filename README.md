@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 CAES-Starter
 ============
 
@@ -17,3 +18,9 @@ Available, but inactive:
 - Bootstrap
 - Susy
 - Typeplate
+=======
+asi.web
+=======
+
+Diazo theme in progress for the new ASI website.
+>>>>>>> 4a409fb670ff29bb1daeefe4dc319435912976db
