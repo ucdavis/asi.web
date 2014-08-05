@@ -1,0 +1,115 @@
+// Footer styles
+
+footer {
+	clear: both;
+	width: 100%;
+	color: #404040;
+	background: $light-background;
+	float: right;
+	margin-top: -3px;
+	@include adjust-font-size-to(15px);
+	padding: 0;
+
+	.container {
+		margin: 0 0 0 5%;
+		width: 94%;
+		padding: rhythm(1) 9.35em rhythm(1) 1.5em;
+		background: #e1dcd6;
+		float: right;
+
+		@include breakpoint($indy) {
+			float: none;
+			clear: both;
+			width: 100%;
+			margin: 0;
+			padding: 1em 2em;
+		}
+	}
+
+	.footer-about {
+		width: 40.208333333%;
+		display: inline-block;
+
+		@include breakpoint($indy) {float: none; width: 100%; max-width: 100%;}
+		@include breakpoint($latte) {display: block; float: left; width: 35%;}
+
+		a:link, a:visited {
+			color: $sub-link;
+
+			&.h3 {color: $main-link;}
+		}
+
+		p.address {
+			@include breakpoint($grasshopper) {float: left; width: 60%;}
+			@include breakpoint($cricket) {width: 50%;}
+			@include breakpoint($latte) {width: 100%; float: none;}
+		}
+		p.contact {
+			vertical-align: bottom;
+
+			@include breakpoint($grasshopper) {float: left; width: 40%; text-align: center;}
+			@include breakpoint($cricket) {width: 50%; text-align: left;}
+			@include breakpoint($latte) {width: 100%; float: none; margin: 0;}
+
+			a {
+				display: block;
+				padding: 2.5% 5%;
+				background: transparentize($ucdavis-gold, 0.25);
+				color: #fff;
+
+				@include breakpoint($latte) {
+					display: inline-block; width: 49%; padding: 1%; margin-bottom: 1em;
+					background: transparent;
+					color: $sub-link;
+				}
+				
+				img {
+					vertical-align: middle; padding: 0 5%;
+					@include breakpoint($grasshopper) {display: block; padding: 6% 5% 1%; margin: 0 auto;}
+					@include breakpoint($cricket) {display: inline; padding: 0% 5%;}
+					@include breakpoint($latte) {background: transparentize($ucdavis-gold, 0.25); padding: 2% 5%; }
+				}
+			}
+		}
+
+		p.copyright {
+			clear: both;
+			padding: 2.5% 5%;
+			@include adjust-font-size-to(10px);
+			margin-top: rhythm(3);
+			text-indent: -1.15em;
+		}
+	}
+
+	.footer-sitemap {
+		max-width: 66%;
+		float: right;
+		width: 59%;
+		padding: rhythm(0.5) 0;
+
+		@include breakpoint($indy) {display: none;}
+		@include breakpoint($latte) {display: block; float: right; width: 60%;}
+
+
+		ul {
+			&.top {}
+
+			padding: 0;
+			width: 42.333%;
+			float: left;
+			vertical-align: top;
+			margin-right: 1em;
+
+			li {
+				list-style: none;
+				@include adjust-font-size-to(12px);
+				padding: rhythm(0.25) 0 rhythm(0.5);
+
+				&.primary a:link, &.primary a:visited {
+					color: $sub-link;
+					@include adjust-font-size-to(12px);
+				}
+			}
+		}
+	}
+}

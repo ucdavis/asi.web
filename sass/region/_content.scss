@@ -1,0 +1,81 @@
+// Content area
+
+section.content {
+
+	display: inline-block;
+	background: $light-background;
+	line-height: rhythm(2);
+	// width: 100%;
+	width: 100%;
+	float: left;
+
+	@include breakpoint($indy) {
+		width: 100%; float: none; clear: both;
+	}
+
+	.diazo-content & {
+		@include background-image(linear-gradient(left, $med-background, $med-background $leftcol-width, $light-background $leftcol-width, $light-background 100%));
+	}
+
+	p, li, td {
+		@include adjust-font-size-to(15px);
+		margin: rhythm(1) 0 rhythm(1);
+
+		p, li, td,
+		h1, h2, h3, h4, h5, h6 {
+			font-size: 1em;
+		}
+	}
+
+	li {
+		margin: rhythm(1/4) 0 rhythm(1/2) 1em;
+		list-style: square;
+	}
+
+	article {
+		background: $light-background;
+		padding: rhythm(2) 7em rhythm(3) 4em;
+		// width: $rightcol-width;
+		// min-height: 700px;
+		max-width: $rightcol-width;
+		display: inline-block;
+		float: left;
+
+		@include breakpoint($indy) {max-width: 100%; padding: 1em 2em;}
+		@include breakpoint($latte) {max-width: 80%; padding: 1em 6em;}
+		@include breakpoint($scooby) {max-width: $rightcol-width; padding: rhythm(2) 7em rhythm(3) 4em;}
+
+		.template-document-fullwidth_view & {max-width: 90%;}
+
+		ul.centers {
+			@extend ul.navlist;
+
+			li {
+				width: 23%; 
+				margin: 0 1% 0 0; 
+				vertical-align: top;
+				text-align: left;
+			}
+		}
+
+		object {max-width: 95%;}
+
+		div.documentDescription {
+			@include adjust-font-size-to(18px);
+		}
+	}
+
+	.portletsbelowcontent {
+		.portlet {
+			width: 33%;
+			float: left; 
+			vertical-align: top;
+		}
+	}
+
+}  // End section.content
+
+
+
+
+

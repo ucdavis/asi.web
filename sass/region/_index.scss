@@ -1,0 +1,239 @@
+// Front pager styles
+
+.diazo-index {
+
+	div.feature .portlet-static-slideshow,
+	.portlet-static-cta {display: block;}
+
+	.rightcol {
+		@include breakpoint($scooby) {width: 100%;}
+		@include clearfix;
+	}
+
+	section.leftnav {display: none;}
+	section.content {width: 100%; background: transparent;}
+
+	section.content .programs p {margin: 0.5em 0 0;}
+
+	div.main {
+		position: relative;
+	}
+
+	.leftcol {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 50;
+	}
+
+
+	.tools {
+		margin: 0 5em;
+		width: 14.855%;
+		float: right;
+		text-align: center;
+
+		@include breakpoint($indy) {
+			margin: 0;
+			float: none;
+			width: 94%;
+			padding: 1em 2em;
+		}
+		@include breakpoint($kaiyo) {width: 16.55%; float: right; margin: 0 5em 0 0;}
+
+		h3, p {text-align: left;}
+		p.footer {text-align: right;}
+
+		p {
+			display: block;
+			clear: both;
+
+			@include breakpoint($cricket) {float: right; }
+		}
+
+		h3 {
+			font-size: 3em;
+			@include uppercased(2px, $bold);
+			float: left;
+			vertical-align: bottom;
+
+			@include breakpoint($cricket) {
+				display: block; 
+			}
+		}
+
+		a {
+			margin: 0 auto;
+			width: $leftcol-width;
+			vertical-align: bottom;
+
+			img {
+				margin-bottom: -1.25em; opacity: 0.5;
+
+				@include breakpoint($indy) {
+					float: left; 
+					display: block; 
+					padding: 0 2em;
+				}
+			}
+		}
+	}
+
+}
+
+.cta {
+	width: 92.131578947%;
+	margin: 5em;
+
+	@include breakpoint($indy) {
+		width: 100%; margin: 0;
+	}
+	@include breakpoint($kaiyo) {
+		width: 92.131578947%; margin: 2em 2em 2em 5em;
+	}
+
+	.about {
+		background: $sarep-dos;
+		color: #fff;
+		width: 34.525547445%;
+		float: left;
+		padding: rhythm(0.5) 5%;
+
+		@include breakpoint($indy) {float: none; width: 100%;}
+		@include breakpoint($grasshopper) {padding: rhythm(0.5) 5%;}
+		@include breakpoint($amber) {width: $leftcol-width; float: left; padding: rhythm(0.5) 2%;}
+
+		h2 {
+			color: #fff;
+			font-weight: $heavy;
+		}
+		p {
+			@include breakpoint($cricket) {
+				display: inline-block;
+				vertical-align: top;
+				width: 44%;
+				margin-right: 5%;
+			}
+			@include breakpoint($amber) {display: block; width: 100%; margin-right: 0;}
+		}
+	}
+	.areaintro {
+		background: $sarep-dos;
+		width: 65.474452555%;
+		padding: rhythm(0.5) 5%;
+
+		h4 {color: #fff; margin-top: 1.35em;}
+	}
+	.programs {
+		background: #fff;
+		width: 65.474452555%;
+		float: left;
+		margin-bottom: 2em;
+		padding: rhythm(0.5) 1em;
+		@extend .clearfix;
+
+		@include breakpoint($indy) {float: none; width: 100%;}
+		@include breakpoint($amber) {width: $rightcol-width; float: left;}
+
+		div {
+			width: 30%;
+			margin: 0 1.5%;
+			float: left;
+			padding: rhythm(1.25) 1em rhythm(0.5);
+			vertical-align: top;
+
+			@include breakpoint($indy) {float: none; margin: 0; width: 94%;}
+			@include breakpoint($grasshopper) {width: 45%; margin: 0 1.5% 2em; float: left; min-height: 388px;}
+			@include breakpoint($latte) {width: 30%; margin-bottom: 0; min-height: 10px;}
+
+			h3 {
+				line-height: rhythm(1);
+				font-size: 3em;
+				line-height: 1em;
+				margin: 0.5em 0 0;
+
+				a {
+					font-family: $futura-condensed;
+					color: $sarep-dos;
+				}
+			}
+			p {
+				font-size: 1.5em;
+
+				@include breakpoint($indy) {font-size: 1.5em;}
+				@include breakpoint($latte) {font-size: 1.5em;}
+			}
+
+			&.cc {
+				@include breakpoint($grasshopper) {margin: 0 auto; float: none; width: 97%;}
+				@include breakpoint($latte) {width: 30%; float: left; margin: 0 1.5%;}
+			}
+		}
+
+		div.quicklinks {
+			width: 100%;
+			clear: both;
+			margin: 1em 0;
+			padding: rhythm(0.5) 1em;
+			@extend .clearfix;
+
+			div {
+				background: $sarep-uno;
+				width: 46%;
+				font-size: 3em;
+				line-height: 1em;
+				padding: 0;
+				margin: 0 1em 0 0;
+				font-family: $futura;
+
+				a {color: #fff; padding: 3% 10%; display: block; width: 100%;}
+				img {padding: 0 1.5em 0 0; float: left;}
+				.title {display: block; font-weight: bold; font-size: 0.9em;}
+			}
+		}
+
+	}
+}
+
+.features {
+
+	margin: 2em auto; 
+	clear: both; 
+	width: 93.1316%;
+
+	.multimedia {
+		width: 31.751824818%;
+		vertical-align: top;
+		display: inline-block;
+		margin-right: 2em;
+		// background: $sarep-uno;
+
+		// img {opacity: 0.25;}
+	}
+
+	.news {
+		width: 65.328467153%;
+		vertical-align: top;
+		display: inline-block;
+
+		.article {
+			width: 33%;
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			background: $sarep-dos;
+			min-height: 299px;
+			padding: 0;
+			float: left;
+
+			h4 {font-family: $futura-condensed; color: #fff;}
+			p {
+				color: #fff;
+
+				&.date {text-transform: uppercase; font-size: 1em; letter-spacing: 1px;}
+			}
+			img {position: absolute; top: 0; left: 0; z-index: 0; opacity: 0.25;}
+			.text {position: absolute; padding: 2em; display: block; z-index: 15;}
+		}
+	}
+}

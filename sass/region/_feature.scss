@@ -1,0 +1,19 @@
+// Feature styles
+
+section.feature {
+	width: 100%;
+	// float: right; 
+	vertical-align: top;
+	height: 380px;
+	position: relative; 
+	z-index: -1;
+
+	.diazo-content & {min-height: rhythm(28);}
+
+	@include breakpoint($indy) {
+		float: none; clear: both;
+	}
+	@include breakpoint($scooby) {
+		float: right; clear: none;
+	}
+}

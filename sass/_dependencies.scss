@@ -1,0 +1,129 @@
+// Shared styles and dependencies
+// Globaly used variables, mixins, and functions
+
+
+// Metrics
+
+
+
+// Colors
+	$body-text:			#343434;
+	$header-text:		#ad5c10;
+	$subheader-text:	#deb308;
+	$main-link:			#a5a914;
+	$sub-link:			#897b00;
+
+	$light-background: 	#efefef;
+	$med-background:	#e6e4da;
+	$dark-background: 	#252222;
+
+	$light-gray:		#bcbcbc;
+	$med-gray:			#626262;
+
+	$ucdavis-gold:		#ddb307;
+	$ucdavis-blue:		#002855;
+	$asi-blue: 			#004b85;
+
+	// Programs
+	$sarep-uno: 		$ucdavis-gold;
+	$sarep-dos:			$asi-blue;
+
+	$rr-uno: 			#008eaa;
+	$rr-dos:			#78be20;
+	
+	$sf-uno:			#4F2C1D;
+	$sf-dos:			#aca39a;
+	
+	$infas-uno:			#5b7f95;
+	$infas-dos:			#ba0c2f;
+	
+	$safs-uno:			#ed8b00;
+	$safs-dos:			#4f2c1d;
+	
+	$research-uno:		#642667;
+	$research-dos:		#008eaa;
+
+
+// Typography
+
+	$futura:			"futura-pt", Futura Std, Futura, Arial, sans-serif;
+	$futura-condensed: 	"futura-pt-condensed", Futura Condensed, Arial Narrow, Calibri, sans-serif;
+	// $futura: 			"futura-pt", Arial, sans-serif; // For testing Typekit Futura
+	$cabin:				"Cabin", Cabin, sans-serif;
+	$sans-serif:		Helvetica Neue, Helvetica Std, Helvetica, Univers, Arial, sans-serif;
+	$serif:				Georgia, Berkeley, serif;
+
+	// [Compass] Vertical rhythm set up
+	// Change these values to whatever you want for your proj
+	$base-font-size:					10px;
+	$base-line-height:					12px;
+	$default-rhythm-border-style:		solid;
+	$relative-font-sizing:				true;
+	$rhythm-unit: 						"rem";
+
+	// Font weights - Futura Typekit
+	$extralight:		200;
+	$light:				300;
+	$book:				400;
+	$medium:			500;
+	$heavy:				600;
+	$bold:				700;
+	$extrabold:			800;
+
+
+
+
+// Widths
+
+	$leftcol-width:			25.855263158%;
+	$rightcol-width:		74.144736842%;
+
+
+// Media query doges
+
+	$direwolf:				1400px;
+	$kaiyo:					1100px;
+	$amber:					1020px;
+	$scooby:				960px;
+	$latte:					800px;
+	$monkey:				700px;
+	$cricket:				620px;
+	$grasshopper:			460px;
+	$indy:					1px;
+
+
+
+// Themes
+
+	@mixin uppercased($spacing: 1px, $weight: inherit) {
+		text-transform: uppercase;
+		letter-spacing: $spacing;
+		font-weight: $weight;
+	}
+	@mixin transformers {
+		@include transition(color 0.25s ease-in-out, background-color 0.25s ease-in-out,
+			height 0.25s ease-in-out, width 0.25s ease-in-out, opacity 0.25s ease-in-out);
+	}
+	@mixin slidingdowntown {
+		transition-delay: 0s;
+	    transition-duration: 0.25s;
+	    transition-property: top;
+	    transition-timing-function: ease;
+	    -webkit-transition-delay: 0s;
+	    -webkit-transition-duration: 0.25s;
+	    -webkit-transition-property: top;
+	    -webkit-transition-timing-function: ease;
+	}
+	.clearfix {
+		@include clearfix;
+	}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+

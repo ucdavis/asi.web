@@ -1,0 +1,281 @@
+// _cal.scss
+
+body {
+	padding:0px	;
+}
+img {
+	max-width:100%;
+}
+
+.words {
+	// background-color:$background-color;
+	opacity:1;
+	.words_contents {
+		// @include inner_schtuff;
+		text-align:center;
+		padding-top:4rem;
+		padding-bottom:4rem;
+		img {
+			padding-bottom:2.5rem;
+		}
+	}
+}
+.stuff {
+	height:auto;
+	// max-height:42rem;
+	margin-top:-0.1rem;
+    // opacity: 0.8;
+    // transition-delay: 0s;
+    // transition-duration: 0.3s;
+    // transition-property: all;
+    // transition-timing-function: ease;
+    width: 100%;
+    padding-top:5rem;
+    padding-bottom:5rem;
+	.stuff_contents {
+		color:#fff;
+		width:80%;
+		margin: 0 auto;
+		p {
+			color:#fff;
+		}
+		.stuff_words {
+			display:inline-block;
+			width:35%;
+			padding:1rem 1.5rem;
+			border-radius:0.3rem;
+			margin-right:15%;
+		}
+		.stuff_image {
+			display:inline-block;
+			width:37%;
+			vertical-align:top;
+			margin-top:1.8rem;
+			text-align:center;
+		}
+	}
+	&.spectafy {
+		background-color:#237ecc;
+		// background-position: 0 0;
+  //  		background-repeat: repeat;
+  //   	background-size: auto auto;
+  //   	background-attachment:fixed;
+		// background-image:url(../media/stars_bg.png);
+
+
+	}
+	&.impel {
+		// background-color:darken($impel-blue,2);
+		// background-repeat: no-repeat;
+		// background-position: center center;
+		// // background-attachment: fixed;
+		// -webkit-background-size: cover;
+		// -moz-background-size: cover;
+		// -o-background-size: cover;
+		// background-size: cover;
+		// background-image:url(../media/impel_bg.jpg);
+		// background-color:rgba(0,0,0,.15);
+	}
+	&.honey {
+		// background-color:darken($honey-orange,2);
+		// background-repeat: no-repeat;
+		// background-position: center center;
+		// // background-attachment: fixed;
+		// -webkit-background-size: cover;
+		// -moz-background-size: cover;
+		// -o-background-size: cover;
+		// background-size: cover;
+		// background-image:url(../media/honey_bg.jpg);
+		// background-color:darken($honey-orange,5);
+	}
+	&.rmi {
+		// background-repeat: no-repeat;
+		// background-position: center center;
+		// // background-attachment: fixed;
+		// -webkit-background-size: cover;
+		// -moz-background-size: cover;
+		// -o-background-size: cover;
+		// background-size: cover;
+		// background-image:url(../media/rmi_bg.jpg);
+		// background-color:darken($rmi-purple,2);
+	}
+	&.zenso {
+		// background-repeat: no-repeat;
+		// background-position: center center;
+		// // background-attachment: fixed;
+		// -webkit-background-size: cover;
+		// -moz-background-size: cover;
+		// -o-background-size: cover;
+		// background-size: cover;
+		// background-image:url(../media/zenso_bg.jpg);
+		// background-color:darken($zenso-blue,2);
+	}
+}
+.stuff:hover {
+	opacity:1;
+}
+
+// Custom random function
+// To allow a minimum value
+// ------------------------------------------------------------
+// @param $min: minimum value
+// @param $max: maximum value
+// ------------------------------------------------------------
+// @return random number
+
+@function rand($min, $max) {
+  @return random($max - $min) + $min;
+}
+
+// Private function for custom stops
+// ------------------------------------------------------------
+// @param $colors: list of color + associated stop
+//     ex: (red 10%, blue 50%, green 65%)
+// ------------------------------------------------------------
+// @return list to be used as a gradient
+
+@function _stripes-custom-stops($colors) {
+  $gradients: ();
+  
+  @for $i from 1 to length($colors) {
+    @if length(nth($colors, $i)) > 1 {
+      $color: nth(nth($colors, $i), 1);
+      $stop:  nth(nth($colors, $i), 2);
+
+      $gradients: append($gradients, $color $stop, comma);
+      @if $i < length($colors) {
+        $gradients: append($gradients, nth(nth($colors, $i + 1), 1) $stop);
+      }
+    }
+    
+    @else {
+      @warn '`#{nth($colors, $i)}` skipped because it is only one item long while it should be 2: (color, color-stop).';
+    }
+  }
+  
+  @return $gradients;
+}
+
+// Private function for random stops
+// ------------------------------------------------------------
+// @param $colors: list of color
+//     ex: (red, blue, green)
+// ------------------------------------------------------------
+// @return two dimensional list
+
+@function _stripes-random-stops($colors) {
+  @if length(nth($colors, 1)) > 1 {
+    @return _stripes-custom-stops($colors);
+  }
+  
+  $n: length($colors);
+  $gradients: ();
+  $variation: 10;
+  $median: 100 / $n;
+   
+  @for $i from 1 to $n {
+    $stop: $median * $i; 
+    $random: rand($stop - $variation, $stop + $variation) * 1%;
+    $gradients: append($gradients, nth($colors, $i) $random, comma);
+    @if $i < length($colors) {
+      $gradients: append($gradients, nth(nth($colors, $i + 1), 1) $random);
+    } 
+  }
+  
+  @return $gradients;
+}
+
+// Private function for equal stops
+// ------------------------------------------------------------
+// @param $colors: list of color
+//     ex: (red, blue, green)
+// ------------------------------------------------------------
+// @return two dimensional list
+
+@function _stripes-equal-stops($colors) {
+  $gradients: ();
+  $stops: 100% / length($colors); 
+  
+  // Loop through colors
+  @for $i from 1 to length($colors) {
+    $gradients: append($gradients, nth($colors, $i) $i * $stops, comma);
+    @if $i < length($colors) {
+      $gradients: append($gradients, nth($colors, $i + 1) $i * $stops);
+    }
+  }
+  
+  // Return gradient
+  @return $gradients;
+}
+
+// Function turning a list of colors (and if specified stops)
+// into a stripes gradient
+// ------------------------------------------------------------
+// @param $colors: list of color or color + color stop
+//     ex: (red blue green) 
+//     ex: (red 10%, blue 50%, green 65%)
+// @param $direction: gradient direction in keyword or degrees
+// @param $random: should color-stops be randomly generated
+// ------------------------------------------------------------
+// @return gradient
+
+@function stripes($colors, $direction: 90deg, $random: false) {
+  // If lonely color
+  @if length($colors) == 1 { @return $colors; }
+  
+  // Else
+  $type: if($random, 'random', if(length(nth($colors, 1)) > 1, 'custom', 'equal'));
+  @return linear-gradient($direction, call('_stripes-#{$type}-stops', $colors));
+}
+
+html {
+  position: relative;
+  height: 100%;
+  background: #333;
+  
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    height: 1em;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  &:after {
+    top: auto;
+    bottom: 0;
+  }
+  
+  &:before {
+    $equal-stops: #1abc9c #2ecc71 #3498db #9b59b6 #34495e #f1c40f #e67e22 #e74c3c #ecf0f1 #95a5a6;
+  
+    // Equal stops
+    // background: stripes($equal-stops, $direction);
+  
+    // Random stops
+    background: stripes($equal-stops, 90deg, $random: true); 
+  }
+  
+  &:after {
+    $custom-stops: #1abc9c 10%, #2ecc71 12.5%, #3498db 28%, #9b59b6 35%, #34495e 60%, #f1c40f 69%, #e67e22 83%, #e74c3c 88%, #ecf0f1 96%, #95a5a6 100%;
+    
+    // Custom stops
+    background: stripes($custom-stops, 90deg);
+  }
+}
+
+body {
+  padding-top: 20px;  
+}
+
+p {
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+a {
+  color: white;
+}
